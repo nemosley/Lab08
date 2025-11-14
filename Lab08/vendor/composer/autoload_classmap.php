@@ -6,6 +6,9 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ComposerAutoloaderInita15ec819ce8d6d1ca8224db69a301e67' => $vendorDir . '/composer/autoload_real.php',
+    'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
+    'Composer\\Autoload\\ComposerStaticInita15ec819ce8d6d1ca8224db69a301e67' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Database' => $baseDir . '/application/database.class.php',
     'Index' => $baseDir . '/views/index/index.class.php',
@@ -14,7 +17,9 @@ return array(
     'Register' => $baseDir . '/views/index/register.class.php',
     'Reset' => $baseDir . '/views/reset/reset.class.php',
     'ResetConfirm' => $baseDir . '/views/reset/reset_confirm.class.php',
+    'UserController' => $baseDir . '/controllers/user_controller.class.php',
     'UserError' => $baseDir . '/views/error/user_error.class.php',
+    'UserModel' => $baseDir . '/models/user_model.class.php',
     'VerifyUser' => $baseDir . '/views/login/verify_user.class.php',
     'View' => $baseDir . '/views/view.class.php',
 );
