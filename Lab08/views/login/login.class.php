@@ -9,30 +9,41 @@
 class Login extends View {
 
     public function display() {
+        // Load shared page header (title, wrapper, logo)
         $this->header();
 ?>
+        <!-- Top section: page heading -->
+        <div class="top-row">
+            <h2>Login</h2>
+        </div>
 
-<div class="top-row"><h2>Login</h2></div>
+        <!-- Middle section: login form -->
+        <div class="middle-row">
 
-<div class="middle-row">
-    <form action="index.php?action=verify" method="post">
+            <!-- Login form submits via POST to the verify action -->
+            <form action="index.php?action=verify" method="post">
 
-        <label>Username:</label>
-        <input type="text" name="username" required>
+                <!-- Username field -->
+                <label>Username:</label>
+                <input type="text" name="username" required>
 
-        <label>Password:</label>
-        <input type="password" name="password" required>
+                <!-- Password field -->
+                <label>Password:</label>
+                <input type="password" name="password" required>
 
-        <button type="submit">Login</button>
+                <!-- Submit button -->
+                <button type="submit">Login</button>
 
-    </form>
-</div>
+            </form>
+        </div>
 
-<div class="bottom-row">
-    <p><a href="index.php?action=reset">Forgot password?</a></p>
-</div>
+        <!-- Bottom section: link for users who forgot their password -->
+        <div class="bottom-row">
+            <p><a href="index.php?action=reset">Forgot password?</a></p>
+        </div>
 
 <?php
+        // Close wrapper and complete the HTML page
         $this->footer();
     }
 }
