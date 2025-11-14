@@ -1,76 +1,27 @@
 <?php
+
 /*
- * Author: Nevaeh Mosley
- * Date: 11/13/2025
- * File: index.php
- * Description: Front controller (bootstrap) for the PeaPOD User Management System.
- *              Reads the "action" query string and dispatches the request to
- *              the appropriate method in UserController.
+ * Author: your name
+ * Date: today's date
+ * Name: index.php
+ * Description: short description about this file
  */
 
-require_once "application/database.class.php";
-require_once "controllers/user_controller.class.php";
+//include code in vendor/autoload.php file
+require_once ("vendor/autoload.php");
 
-// Read and sanitize the "action" parameter from the query string
-$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+//create an object of UserController
+$user_controller = new UserController();
 
-// Default action is "index" (registration form)
-if (!$action) {
-    $action = "index";
-}
+//add your code below this line to complete this file
 
-// List of valid actions for this application
-$valid_actions = [
-    "index",
-    "register",
-    "login",
-    "verify",
-    "logout",
-    "reset",
-    "do_reset",
-    "error"
-];
+$action = $_GET['action'] ?? 'index';
 
-// Fallback to "error" if an invalid action is passed
-if (!in_array($action, $valid_actions, true)) {
-    $action = "error";
-}
-
-// Create the controller
-$controller = new UserController();
-
-// Dispatch based on action
-switch ($action) {
-    case "index":
-        $controller->index();
-        break;
-
-    case "register":
-        $controller->register();
-        break;
-
-    case "login":
-        $controller->login();
-        break;
-
-    case "verify":
-        $controller->verify();
-        break;
-
-    case "logout":
-        $controller->logout();
-        break;
-
-    case "reset":
-        $controller->reset();
-        break;
-
-    case "do_reset":
-        $controller->do_reset();
-        break;
-
-    case "error":
-    default:
-        $controller->error();
-        break;
+// Check if the method exists in the controller
+if (method_exists($user_controller, $action)) {
+    // Call the controller method
+    $user_controller->$action();
+} else {
+    // If action doesn't exist, call the custom error page
+    $user_controller->error("Method " . $action . " does not exist");
 }
