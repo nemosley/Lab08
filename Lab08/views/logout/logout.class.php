@@ -9,20 +9,30 @@
 class Logout extends View {
 
     public function display() {
+
+        // Load shared page header (title, wrapper, logo)
         $this->header();
 ?>
+        <!-- Top section: page heading -->
+        <div class="top-row">
+            <h2>You Have Logged Out</h2>
+        </div>
 
-<div class="top-row"><h2>You Have Logged Out</h2></div>
+        <!-- Middle section: logout confirmation message -->
+        <div class="middle-row">
+            <p>You have successfully logged out.</p>
 
-<div class="middle-row">
-    <p>You have successfully logged out.</p>
-    <a href="index.php?action=login">Login again</a>
-</div>
+            <!-- Link to return to the login page -->
+            <a href="index.php?action=login">Login again</a>
+        </div>
 
-<div class="bottom-row"></div>
+        <!-- Bottom section: empty for spacing / styling -->
+        <div class="bottom-row"></div>
 
 <?php
+        // Close wrapper + complete HTML page
         $this->footer();
+
     }
 }
 ?>
