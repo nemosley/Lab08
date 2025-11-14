@@ -40,22 +40,15 @@ class UserController
         $user = $this->userModel->verify_user();
 
         $view= new VerifyUser();
-        $view->display($user);
+        $view->display($user,$_COOKIE["username"]);
     }
 
     public function logout()
     {
         $logout= $this->userModel->logout();
-        if(!$logout){
-            $message = "There was an error logging you in. Please try again.";
-            $log = false;
-        }
-        else {
-            $message = "You have successfully logged out.";
-            $log = true;
-        }
+
         $view = new Logout();
-        $view->display($message, $log);
+        $view->display($logout);
     }
 
     public function reset()
